@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE")
+    }
+}
+
+plugins {
+    id 'com.github.sherter.google-java-format' version '0.8'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+description = 'Spring Boot Starter'
+
+group = 'com.xdlr'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+googleJavaFormat {
+    options style: 'AOSP'
+    source = sourceSets*.allJava
+    include '**/*.java'
+    exclude '**/temp/*.java'
+    exclude '**/solidity/*.java'
+}
+
+verifyGoogleJavaFormat {
+    source = sourceSets*.allJava
+    include '**/*.java'
+    exclude '**/temp/*.java'
+    exclude '**/solidity/*.java'
+}
+
+check.dependsOn.remove(test)
+check.dependsOn.remove(verifyGoogleJavaFormat)
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    maven { url "https://dl.bintray.com/ethereum/maven/" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.codehaus.groovy:groovy-all:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.fisco-bcos:web3sdk:2.1.0'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('com.jayway.jsonpath:json-path')
+}
+
+configurations {
+    all {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
