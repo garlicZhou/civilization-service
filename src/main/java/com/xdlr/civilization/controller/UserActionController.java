@@ -1,6 +1,7 @@
 package com.xdlr.civilization.controller;
 
 import com.xdlr.civilization.contract.IntegralClient;
+import com.xdlr.civilization.service.GlobalVariable;
 import org.fisco.bcos.web3j.tuples.generated.Tuple3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,17 +18,15 @@ public class UserActionController {
 
     @RequestMapping(value = "/register")
     public UserActionResponse register(@RequestParam(value = "userId") String userId,
-                                       @RequestParam(value = "name") String name,
-                                       @RequestParam(value = "tokenValues") int tokenValue) {
-        int result = integralClient.initUserInfo(userId, name, BigInteger.valueOf(tokenValue));
-        return new UserActionResponse(userId, tokenValue, UserActionResponse.ACTION_TYPE_REGISTER, result == 1);
+                                       @RequestParam(value = "name") String name) {
+        int result = integralClient.initUserInfo(userId, name, BigInteger.valueOf(GlobalVariable.INIT_TOKEN));
+        return new UserActionResponse(userId, GlobalVariable.INIT_TOKEN, UserActionResponse.ACTION_TYPE_REGISTER, result == 1);
     }
 
-    @RequestMapping(value = "/rubbish")
-    public UserActionResponse throwRubbish(@RequestParam(value = "userId") String userId,
-                                           @RequestParam(value = "value") int value) {
-        int result = integralClient.throwRubbish(userId, BigInteger.valueOf(value));
-        return new UserActionResponse(userId, value, UserActionResponse.ACTION_TYPE_GARBAGE, result == 1);
+    @RequestMapping(value = "/openCan")
+    public UserActionResponse throwRubbish(@RequestParam(value = "userId") String userId){
+        int result = integralClient.throwRubbish(userId, BigInteger.valueOf(GlobalVariable.TOKEN_AWARD_PER_PHOTO));
+        return new UserActionResponse(userId, GlobalVariable.TOKEN_AWARD_PER_PHOTO, UserActionResponse.ACTION_TYPE_GARBAGE, result == 1);
     }
 
     @RequestMapping(value = "/vending")
