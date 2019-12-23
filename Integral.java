@@ -1,4 +1,5 @@
-package com.xdlr.civilization.contract;
+package civilizaition;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ import org.fisco.bcos.web3j.tx.txdecode.TransactionDecoder;
  * <p>Auto generated code.
  * <p><strong>Do not modify!</strong>
  * <p>Please use the <a href="https://docs.web3j.io/command_line.html">web3j command line tools</a>,
- * or the org.fisco.bcos.web3j.codegen.SolidityFunctionWrapperGenerator in the
+ * or the org.fisco.bcos.web3j.codegen.SolidityFunctionWrapperGenerator in the 
  * <a href="https://github.com/web3j/web3j/tree/master/codegen">codegen module</a> to update.
  *
  * <p>Generated with web3j version none.
@@ -60,7 +61,7 @@ public class Integral extends Contract {
 
     public static final String FUNC_RECORDQUERY = "recordQuery";
 
-    public static final Event TESTUSER_EVENT = new Event("TestUser",
+    public static final Event TESTUSER_EVENT = new Event("TestUser", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint32>() {}));
     ;
 
@@ -88,114 +89,114 @@ public class Integral extends Contract {
 
     public RemoteCall<TransactionReceipt> lastTime(String userID) {
         final Function function = new Function(
-                FUNC_LASTTIME,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)),
+                FUNC_LASTTIME, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)), 
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public void lastTime(String userID, TransactionSucCallback callback) {
         final Function function = new Function(
-                FUNC_LASTTIME,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)),
+                FUNC_LASTTIME, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)), 
                 Collections.<TypeReference<?>>emptyList());
         asyncExecuteTransaction(function, callback);
     }
 
     public String lastTimeSeq(String userID) {
         final Function function = new Function(
-                FUNC_LASTTIME,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)),
+                FUNC_LASTTIME, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)), 
                 Collections.<TypeReference<?>>emptyList());
         return createTransactionSeq(function);
     }
 
     public Tuple1<String> getLastTimeInput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getInput().substring(10);
-        final Function function = new Function(FUNC_LASTTIME,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_LASTTIME, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple1<String>(
 
                 (String) results.get(0).getValue()
-        );
+                );
     }
 
     public Tuple1<BigInteger> getLastTimeOutput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getOutput();
-        final Function function = new Function(FUNC_LASTTIME,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_LASTTIME, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple1<BigInteger>(
 
                 (BigInteger) results.get(0).getValue()
-        );
+                );
     }
 
     public RemoteCall<BigInteger> recordNum(String userID) {
-        final Function function = new Function(FUNC_RECORDNUM,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)),
+        final Function function = new Function(FUNC_RECORDNUM, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint32>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<TransactionReceipt> throwRubbish(String userID, BigInteger Value) {
         final Function function = new Function(
-                FUNC_THROWRUBBISH,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_THROWRUBBISH, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public void throwRubbish(String userID, BigInteger Value, TransactionSucCallback callback) {
         final Function function = new Function(
-                FUNC_THROWRUBBISH,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_THROWRUBBISH, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         asyncExecuteTransaction(function, callback);
     }
 
     public String throwRubbishSeq(String userID, BigInteger Value) {
         final Function function = new Function(
-                FUNC_THROWRUBBISH,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_THROWRUBBISH, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         return createTransactionSeq(function);
     }
 
     public Tuple2<String, BigInteger> getThrowRubbishInput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getInput().substring(10);
-        final Function function = new Function(FUNC_THROWRUBBISH,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_THROWRUBBISH, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Uint32>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple2<String, BigInteger>(
 
-                (String) results.get(0).getValue(),
+                (String) results.get(0).getValue(), 
                 (BigInteger) results.get(1).getValue()
-        );
+                );
     }
 
     public Tuple1<BigInteger> getThrowRubbishOutput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getOutput();
-        final Function function = new Function(FUNC_THROWRUBBISH,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_THROWRUBBISH, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple1<BigInteger>(
 
                 (BigInteger) results.get(0).getValue()
-        );
+                );
     }
 
     public RemoteCall<Tuple4<String, BigInteger, BigInteger, String>> infoQuery(String userID) {
-        final Function function = new Function(FUNC_INFOQUERY,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)),
+        final Function function = new Function(FUNC_INFOQUERY, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID)), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint32>() {}, new TypeReference<Utf8String>() {}));
         return new RemoteCall<Tuple4<String, BigInteger, BigInteger, String>>(
                 new Callable<Tuple4<String, BigInteger, BigInteger, String>>() {
@@ -203,9 +204,9 @@ public class Integral extends Contract {
                     public Tuple4<String, BigInteger, BigInteger, String> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple4<String, BigInteger, BigInteger, String>(
-                                (String) results.get(0).getValue(),
-                                (BigInteger) results.get(1).getValue(),
-                                (BigInteger) results.get(2).getValue(),
+                                (String) results.get(0).getValue(), 
+                                (BigInteger) results.get(1).getValue(), 
+                                (BigInteger) results.get(2).getValue(), 
                                 (String) results.get(3).getValue());
                     }
                 });
@@ -213,120 +214,120 @@ public class Integral extends Contract {
 
     public RemoteCall<TransactionReceipt> userInit(String userID, String Name, BigInteger TokenAllValues, String userImg) {
         final Function function = new Function(
-                FUNC_USERINIT,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)),
+                FUNC_USERINIT, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)), 
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public void userInit(String userID, String Name, BigInteger TokenAllValues, String userImg, TransactionSucCallback callback) {
         final Function function = new Function(
-                FUNC_USERINIT,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)),
+                FUNC_USERINIT, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)), 
                 Collections.<TypeReference<?>>emptyList());
         asyncExecuteTransaction(function, callback);
     }
 
     public String userInitSeq(String userID, String Name, BigInteger TokenAllValues, String userImg) {
         final Function function = new Function(
-                FUNC_USERINIT,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues),
-                        new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)),
+                FUNC_USERINIT, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(Name), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(TokenAllValues), 
+                new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userImg)), 
                 Collections.<TypeReference<?>>emptyList());
         return createTransactionSeq(function);
     }
 
     public Tuple4<String, String, BigInteger, String> getUserInitInput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getInput().substring(10);
-        final Function function = new Function(FUNC_USERINIT,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_USERINIT, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint32>() {}, new TypeReference<Utf8String>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple4<String, String, BigInteger, String>(
 
-                (String) results.get(0).getValue(),
-                (String) results.get(1).getValue(),
-                (BigInteger) results.get(2).getValue(),
+                (String) results.get(0).getValue(), 
+                (String) results.get(1).getValue(), 
+                (BigInteger) results.get(2).getValue(), 
                 (String) results.get(3).getValue()
-        );
+                );
     }
 
     public Tuple1<BigInteger> getUserInitOutput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getOutput();
-        final Function function = new Function(FUNC_USERINIT,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_USERINIT, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple1<BigInteger>(
 
                 (BigInteger) results.get(0).getValue()
-        );
+                );
     }
 
     public RemoteCall<TransactionReceipt> buyThing(String userID, BigInteger Value) {
         final Function function = new Function(
-                FUNC_BUYTHING,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_BUYTHING, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public void buyThing(String userID, BigInteger Value, TransactionSucCallback callback) {
         final Function function = new Function(
-                FUNC_BUYTHING,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_BUYTHING, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         asyncExecuteTransaction(function, callback);
     }
 
     public String buyThingSeq(String userID, BigInteger Value) {
         final Function function = new Function(
-                FUNC_BUYTHING,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)),
+                FUNC_BUYTHING, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(Value)), 
                 Collections.<TypeReference<?>>emptyList());
         return createTransactionSeq(function);
     }
 
     public Tuple2<String, BigInteger> getBuyThingInput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getInput().substring(10);
-        final Function function = new Function(FUNC_BUYTHING,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_BUYTHING, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Uint32>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple2<String, BigInteger>(
 
-                (String) results.get(0).getValue(),
+                (String) results.get(0).getValue(), 
                 (BigInteger) results.get(1).getValue()
-        );
+                );
     }
 
     public Tuple1<BigInteger> getBuyThingOutput(TransactionReceipt transactionReceipt) {
         String data = transactionReceipt.getOutput();
-        final Function function = new Function(FUNC_BUYTHING,
-                Arrays.<Type>asList(),
+        final Function function = new Function(FUNC_BUYTHING, 
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         List<Type> results = FunctionReturnDecoder.decode(data, function.getOutputParameters());;
         return new Tuple1<BigInteger>(
 
                 (BigInteger) results.get(0).getValue()
-        );
+                );
     }
 
     public RemoteCall<Tuple2<String, BigInteger>> recordQuery(String userID, BigInteger num) {
-        final Function function = new Function(FUNC_RECORDQUERY,
-                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID),
-                        new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(num)),
+        final Function function = new Function(FUNC_RECORDQUERY, 
+                Arrays.<Type>asList(new org.fisco.bcos.web3j.abi.datatypes.Utf8String(userID), 
+                new org.fisco.bcos.web3j.abi.datatypes.generated.Uint32(num)), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}));
         return new RemoteCall<Tuple2<String, BigInteger>>(
                 new Callable<Tuple2<String, BigInteger>>() {
@@ -334,7 +335,7 @@ public class Integral extends Contract {
                     public Tuple2<String, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple2<String, BigInteger>(
-                                (String) results.get(0).getValue(),
+                                (String) results.get(0).getValue(), 
                                 (BigInteger) results.get(1).getValue());
                     }
                 });

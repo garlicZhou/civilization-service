@@ -1,4 +1,4 @@
-package com.xdlr.civilization.service;
+package com.xdlr.civilization.utils;
 
 public interface GlobalVariable {
     // 新用户注册送1积分

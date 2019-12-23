@@ -5,6 +5,7 @@ import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.fisco.bcos.web3j.tuples.generated.Tuple2;
 import org.fisco.bcos.web3j.tuples.generated.Tuple3;
+import org.fisco.bcos.web3j.tuples.generated.Tuple4;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,9 @@ import java.util.Properties;
 @Component
 public class IntegralClient {
     static Logger logger = LoggerFactory.getLogger(IntegralClient.class);
-    static String contractAddress = "0x0a52b405bba05d46f32fa03fb8bc8c99053c97f6";
+    //static String contractAddress = "0x0a52b405bba05d46f32fa03fb8bc8c99053c97f6";
+    static String contractAddress = "0xea1c8615b144b36ec4d21b5c975c81973b4c899f";
+
 
     @Autowired
     private Web3j web3j;
@@ -65,11 +68,11 @@ public class IntegralClient {
         }
     }
 
-    public int initUserInfo(String userID, String Name, BigInteger TokenAllValues) {
+    public int initUserInfo(String userID, String Name, BigInteger TokenAllValues, String userImg) {
         try {
             logger.info("contractAddress: " + contractAddress + " web3j: " + web3j + " credentials:" + credentials);
             Integral integral = Integral.load(contractAddress, web3j, credentials, new StaticGasProvider(gasPrice, gasLimit));
-            TransactionReceipt result = integral.userInit(userID, Name, TokenAllValues).send();
+            TransactionReceipt result = integral.userInit(userID, Name, TokenAllValues,userImg).send();
             System.out.printf("init user info success\n");
             System.out.printf("TransactionReceipt is" + result);
             return 1;
@@ -124,10 +127,10 @@ public class IntegralClient {
         }
     }
 
-    public Tuple3 queryUserInfo(String userID) {
+    public Tuple4 queryUserInfo(String userID) {
         try {
             Integral integral = Integral.load(contractAddress, web3j, credentials, new StaticGasProvider(gasPrice, gasLimit));
-            Tuple3<String, BigInteger, BigInteger> result = integral.infoQuery(userID).send();
+            Tuple4<String, BigInteger, BigInteger,String> result = integral.infoQuery(userID).send();
             if (!result.getValue1().isEmpty()) {
                 System.out.printf(" Name is %s, last time enter room is %s , TokenAllValues is %s \n", result.getValue1(), result.getValue2(), result.getValue3());
             } else {
@@ -137,7 +140,7 @@ public class IntegralClient {
         } catch (Exception e) {
             logger.error(" queryAssetAmount exception, error message is {}", e.getMessage());
             System.out.printf(" query asset account failed, error message is %s\n", e.getMessage());
-            return new Tuple3(-1, -1, -1);
+            return new Tuple4(-1, -1, -1, -1);
         }
     }
 
